@@ -1,0 +1,51 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+	<script type="text/javascript">
+	
+		var word = "";
+		var sentence = "";
+		var text = "";
+		
+		
+		document.addEventListener("keydown", function (e) {
+		var character_code = event.which || event.keyCode;
+		var character_value = String.fromCharCode(character_code);
+		
+		console.log("Current Character: " + character_code + " " + character_value);
+		
+		//collect characters anyway
+		word = word + character_value;
+		
+		//in case a space was entered -> indication for a word
+		if(character_code == 32)
+		{
+			console.log("Word: " + word);
+			sentence = sentence + word; //add the word to the sentence
+			word = "";
+		}
+		
+		//in case a "." or an "ENTER" was entered -> indication that the sentence has finished
+		if(character_code == 13 || character_code == 190)
+		{
+		
+			console.log("Sentence: " + sentence);
+			text = text + sentence + word; //get the last word as well
+			word = "";
+			sentence = "";
+		}
+		});
+	
+	</script>
+</body>
+
+</html>
