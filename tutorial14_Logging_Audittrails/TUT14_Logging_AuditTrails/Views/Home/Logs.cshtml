@@ -1,0 +1,37 @@
+﻿@model IEnumerable<TUT14_Logging_AuditTrails.Models.HomeHontrollerViewModel>
+
+<h2>logs</h2>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.UserId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LogId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LogCreatedOn)
+        </th>
+        <th></th>
+    </tr>
+
+    @if(Model != null)
+    {
+        foreach(var item in Model)
+        {
+    <tr>
+        <th>
+            @Html.DisplayFor(modelItem => item.UserId)
+        </th>
+        <th>
+            @Html.DisplayFor(modelItem => item.LogId)
+        </th>
+        <th>
+            @Html.DisplayFor(modelItem=> item.LogCreatedOn)
+        </th>
+        <th></th>
+    </tr>
+        }
+    }
+
+</table>
